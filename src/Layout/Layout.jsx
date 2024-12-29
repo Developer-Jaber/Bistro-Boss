@@ -1,9 +1,12 @@
 import { Outlet } from 'react-router-dom'
+import Header from '../Components/Header'
 
 const Layout = () => {
   return (
-    <div>
-      <header></header>
+    <div className='cinzel-font'>
+      <header>
+        <Header></Header>
+      </header>
       <main>
         <Outlet></Outlet>
       </main>
