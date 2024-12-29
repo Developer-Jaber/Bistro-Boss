@@ -33,7 +33,7 @@ const Navber = () => {
     </>
   )
   return (
-    <div className='items-center bg-base-100 mx-auto w-11/12 navbar'>
+    <div className='top-0 z-10 fixed inset-x-0 items-center bg-black bg-opacity-30 mx-auto py-0 w-11/12 text-white navbar'>
       <div className='w-5/12 navbar-start'>
         <div className='dropdown'>
           <div tabIndex={0} role='button' className='lg:hidden btn btn-ghost'>
