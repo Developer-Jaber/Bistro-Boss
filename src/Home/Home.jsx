@@ -3,6 +3,7 @@ import CallUs from '../Components/CallUs'
 import CategorySlides from '../Components/CategorySlides'
 import ChefRecomands from '../Components/ChefRecomands'
 import ChefService from '../Components/ChefService'
+import Fetured from '../Components/Fetured'
 import FromOurMenu from '../Components/FromOurMenu'
 import SectionTitle from '../Components/SectionTitle'
 
@@ -38,6 +39,9 @@ const Home = () => {
           subHeading={'CHEF RECOMMENDS'}
         ></SectionTitle>
         <ChefRecomands></ChefRecomands>
+      </section>
+      <section>
+        <Fetured></Fetured>
       </section>
     </div>
   )
