@@ -4,7 +4,7 @@ import Footer from '../Components/Footer'
 
 const Layout = () => {
   return (
-    <div className='cinzel-font'>
+    <div>
       <header>
         <Header></Header>
       </header>

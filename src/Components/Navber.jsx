@@ -59,7 +59,7 @@ const Navber = () => {
             {link}
           </ul>
         </div>
-        <a className='block text-2xl'>
+        <a className='block text-2xl cinzel-font'>
           <div>BISTRO BOSS</div>
           <div>Restaurant</div>
         </a>
