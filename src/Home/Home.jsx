@@ -1,4 +1,5 @@
 import Banner from '../Components/Banner'
+import CallUs from '../Components/CallUs'
 import CategorySlides from '../Components/CategorySlides'
 import ChefService from '../Components/ChefService'
 import FromOurMenu from '../Components/FromOurMenu'
@@ -26,6 +27,9 @@ const Home = () => {
           subHeading={'FROM OUR MENU'}
         ></SectionTitle>
         <FromOurMenu></FromOurMenu>
+      </section>
+      <section>
+        <CallUs></CallUs>
       </section>
     </div>
   )
