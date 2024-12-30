@@ -1,6 +1,7 @@
 import Banner from '../Components/Banner'
 import CallUs from '../Components/CallUs'
 import CategorySlides from '../Components/CategorySlides'
+import ChefRecomands from '../Components/ChefRecomands'
 import ChefService from '../Components/ChefService'
 import FromOurMenu from '../Components/FromOurMenu'
 import SectionTitle from '../Components/SectionTitle'
@@ -30,6 +31,13 @@ const Home = () => {
       </section>
       <section>
         <CallUs></CallUs>
+      </section>
+      <section>
+      <SectionTitle
+          heading={'---Should Try---'}
+          subHeading={'CHEF RECOMMENDS'}
+        ></SectionTitle>
+        <ChefRecomands></ChefRecomands>
       </section>
     </div>
   )
