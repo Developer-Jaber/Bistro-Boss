@@ -6,6 +6,7 @@ import ChefService from '../Components/ChefService'
 import Fetured from '../Components/Fetured'
 import FromOurMenu from '../Components/FromOurMenu'
 import SectionTitle from '../Components/SectionTitle'
+import Testimonials from '../Components/Testimonials'
 
 const Home = () => {
   return (
@@ -42,6 +43,9 @@ const Home = () => {
       </section>
       <section>
         <Fetured></Fetured>
+      </section>
+      <section>
+        <Testimonials></Testimonials>
       </section>
     </div>
   )

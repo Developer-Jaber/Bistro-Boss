@@ -5,7 +5,7 @@ const Fetured = () => {
   return (
     <section
       style={{ backgroundImage: `url(${feturedImg})` }}
-      className='bg-fixed mx-auto w-9/12 text-white'
+      className='bg-fixed mx-auto my-16 w-9/12 text-white'
     >
       <div className='bg-black bg-opacity-30 py-14'>
         <SectionTitle
