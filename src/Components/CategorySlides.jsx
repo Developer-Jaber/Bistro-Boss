@@ -29,25 +29,25 @@ const CategorySlides = () => {
         }}
         modules={[FreeMode, Pagination]}
       >
-        <SwiperSlide>
+        <SwiperSlide className='relative'>
           <img src={slid1} alt='' />
-          <h1 className='-m-20 font-semibold text-2xl text-white'>SALAD</h1>
+          <h1 className='bottom-20 absolute font-semibold text-2xl text-white'>SALAD</h1>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide >
           <img src={slid2} alt='' />
-          <h1 className='-m-20 font-semibold text-2xl text-white'>SALAD</h1>
+          <h1 className='bottom-20 absolute font-semibold text-2xl text-white'>PI</h1>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className='relative'>
           <img src={slid3} alt='' />
-          <h1 className='-m-20 font-semibold text-2xl text-white'>SALAD</h1>
+          <h1 className='bottom-20 absolute font-semibold text-2xl text-white'>SALAD</h1>
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className='relative'>
           <img src={slid4} alt='' />
-          <h1 className='-m-20 font-semibold text-2xl text-white'>SALAD</h1>
+          <h1 className='bottom-20 absolute font-semibold text-2xl text-white'>SALAD</h1>
         </SwiperSlide>
         <SwiperSlide className='relative'>
           <img src={slid5} alt='' />
-          <h1 className='bottom-12 left-32 absolute font-semibold text-2xl text-white'>SALAD</h1>
+          <h1 className='bottom-20 absolute font-semibold text-2xl text-white'>SALAD</h1>
         </SwiperSlide>
       </Swiper>
     </div>
