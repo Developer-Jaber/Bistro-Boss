@@ -3,7 +3,7 @@ import { Parallax } from 'react-parallax'
 const Coverd = ({ bg, heding, subHeding }) => {
   return (
     <Parallax
-      blur={{ min: -15, max: 15 }}
+      blur={{ min: -15, max: 5 }}
     //   bgImage={require('../assets/menu/banner3.jpg')}
       bgImageAlt='the dog'
       strength={-200}

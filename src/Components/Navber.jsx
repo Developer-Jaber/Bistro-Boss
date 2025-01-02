@@ -16,7 +16,7 @@ const Navber = () => {
         <Link to='our-menu'>Our Menu</Link>
       </li>
       <li>
-        <Link>
+        <Link to='order'>
           <span>Our Shop</span>
           <img
             className='w-10'
