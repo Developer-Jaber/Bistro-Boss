@@ -26,8 +26,8 @@ const Navber = () => {
         </Link>
       </li>
       <li>
-        <Link>
-         <img className='w-16' src='https://i.ibb.co/19jrmD9/profile.png' alt='' />
+        <Link to='login'>
+         <img className='rounded-full w-16' src='https://i.ibb.co/19jrmD9/profile.png' alt='' />
         </Link>
       </li>
     </>
