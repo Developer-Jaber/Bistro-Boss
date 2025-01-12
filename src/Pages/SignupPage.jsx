@@ -1,8 +1,30 @@
 import { Link } from "react-router-dom"
 import signupImg from '../assets/others/authentication2.png' 
+import { useContext } from "react"
+import { AuthContext } from "../Provider/AuthProvider"
 
 
 const SignupPage = () => {
+  const {createUser} = useContext(AuthContext);
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+ 
+    createUser(email,password)
+    .then((res)=>{
+      console.log(res);
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+
+  }
   return (
     <div className="lg:flex justify-center items-center bg-[url('/path-to-your-image.jpg')] bg-cover min-h-screen">
       <div>
@@ -12,13 +34,14 @@ const SignupPage = () => {
         <h2 className='mb-6 font-bold text-3xl text-center text-gray-800'>
           Bistro Boss Sign Up
         </h2>
-        <form>
+        <form onSubmit={handleSignUp}>
           <div className='form-control mb-4 w-full'>
             <label className='label'>
               <span className='label-text'>Name</span>
             </label>
             <input
               type='text'
+              name="name"
               placeholder='Enter your name'
               className='input-bordered w-full input'
             />
@@ -29,6 +52,7 @@ const SignupPage = () => {
             </label>
             <input
               type='email'
+              name="email"
               placeholder='Enter your email'
               className='input-bordered w-full input'
             />
@@ -39,6 +63,7 @@ const SignupPage = () => {
             </label>
             <input
               type='password'
+              name="password"
               placeholder='Create a password'
               className='input-bordered w-full input'
             />
