@@ -1,9 +1,10 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../Provider/AuthProvider'
+import { FaShoppingCart } from 'react-icons/fa'
 
 const Navber = () => {
-  const { user ,logoutUser } = useContext(AuthContext)
+  const { user, logoutUser } = useContext(AuthContext)
   const handleLogout = () => {
     logoutUser()
   }
@@ -22,13 +23,14 @@ const Navber = () => {
         <Link to='our-menu'>Our Menu</Link>
       </li>
       <li>
-        <Link to='order'>
-          <span>Our Shop</span>
-          <img
-            className='w-10'
-            src='https://i.ibb.co/mGWhvLp/151-1511569-cart-notifications-free-shopping-cart-favicon-hd-png-removebg-preview.png'
-            alt=''
-          />
+        <Link to='order'>Our Shop</Link>
+      </li>
+      <li>
+        <Link to='/'>
+          <button className='flex gap-3'>
+            <FaShoppingCart className='text-3xl'></FaShoppingCart>
+            <div className='p-2 text-2xl badge badge-primary'>+0</div>
+          </button>
         </Link>
       </li>
       <li>
@@ -45,7 +47,11 @@ const Navber = () => {
         </Link>
       </li>
       <li>
-        {user && <button onClick={handleLogout} className='btn btn-primary'>LogOut</button>}
+        {user && (
+          <button onClick={handleLogout} className='btn btn-primary'>
+            LogOut
+          </button>
+        )}
       </li>
     </>
   )

@@ -12,7 +12,7 @@ const FromOurMenu = () => {
             setItem(populerItem)
         })
     },[])
-    console.log(Items);
+    
     return (
         <div className="gap-7 grid grid-cols-2 mx-auto my-10 w-8/12">
             {

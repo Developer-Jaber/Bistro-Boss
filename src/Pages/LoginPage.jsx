@@ -10,41 +10,45 @@ import {
   validateCaptcha
 } from 'react-simple-captcha'
 import { AuthContext } from '../Provider/AuthProvider'
+import { useForm } from 'react-hook-form'
 
 const LoginPage = () => {
-  const [disabled,setDisabled] = useState(true)
-    const captchaRef = useRef(null)
-    useEffect(()=>{
-        loadCaptchaEnginge(5); 
-    },[])
+  const { popupGoogle, loginUser } = useContext(AuthContext)
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value
-        const password = form.password.value
+  const { register, handleSubmit } = useForm()
+  const onSubmit = data => {
+    loginUser(data.email, data.password)
+    .then(res=>{
+      console.log(res);
+    })
+    .catch(error=>{
+      console.log(error);
+    })
+  }
+  const [disabled, setDisabled] = useState(true)
+  const captchaRef = useRef(null)
+  useEffect(() => {
+    loadCaptchaEnginge(5)
+  }, [])
+
+  const handleValidateCaptcha = () => {
+    const user_captcha_value = captchaRef.current.value
+    if (validateCaptcha(user_captcha_value)) {
+      setDisabled(false)
+    } else {
+      setDisabled(true)
     }
+  }
 
-    const handleValidateCaptcha = () =>{
-        const user_captcha_value = captchaRef.current.value;
-        if(validateCaptcha(user_captcha_value)){
-          setDisabled(false)
-        }else{
-          setDisabled(true)
-        }
-    }
-
-    const {popupGoogle} = useContext(AuthContext)
-
-    const handleGooleLogIn = () =>{
-      popupGoogle()
-      .then((res)=>{
-        console.log(res);
+  const handleGooleLogIn = () => {
+    popupGoogle()
+      .then(res => {
+        console.log(res)
       })
-      .catch((err)=>{
-        console.log(err);
+      .catch(err => {
+        console.log(err)
       })
-    }
+  }
   return (
     <div
       style={{ backgroundImage: `url(${bgLogin})` }}
@@ -57,15 +61,14 @@ const LoginPage = () => {
         <h2 className='mb-6 font-bold text-3xl text-center text-gray-800'>
           Bistro Boss Login
         </h2>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className='form-control mb-4 w-full'>
             <label className='label'>
               <span className='label-text'>Email</span>
             </label>
             <input
               type='email'
-              placeholder='Enter your email'
-              name='email'
+              {...register('email', { required: true })}
               className='input-bordered w-full input'
             />
           </div>
@@ -75,8 +78,7 @@ const LoginPage = () => {
             </label>
             <input
               type='password'
-              name='password'
-              placeholder='Enter your password'
+              {...register('password', { required: true, maxLength: 20 })}
               className='input-bordered w-full input'
             />
           </div>
@@ -84,14 +86,33 @@ const LoginPage = () => {
             <label className='label'>
               <LoadCanvasTemplate />
             </label>
-            <input type='text' ref={captchaRef} name='captcha' className='input-bordered w-full input' />
-            <button onClick={handleValidateCaptcha} className='border-2 btn btn-sm'>veryfy</button>
+            <input
+              type='text'
+              ref={captchaRef}
+              name='captcha'
+              className='input-bordered w-full input'
+            />
+            <button
+              onClick={handleValidateCaptcha}
+              className='border-2 btn btn-sm'
+            >
+              veryfy
+            </button>
           </div>
-          <button disabled={disabled} className='w-full btn btn-primary'>Login</button>
+          <button
+            type='submit'
+            disabled={disabled}
+            className='w-full btn btn-primary'
+          >
+            Login
+          </button>
         </form>
         <div className='flex flex-col space-y-4 mt-5'>
           <h1 className='font-bold text-center text-xl'>Log In With</h1>
-          <button onClick={handleGooleLogIn} className='flex justify-center items-center w-full btn btn-outline'>
+          <button
+            onClick={handleGooleLogIn}
+            className='flex justify-center items-center w-full btn btn-outline'
+          >
             <FaGoogle className='mr-2' /> Login with Google
           </button>
           <button className='flex justify-center items-center w-full btn btn-outline'>
