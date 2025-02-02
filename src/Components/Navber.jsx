@@ -2,11 +2,30 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../Provider/AuthProvider'
 import { FaShoppingCart } from 'react-icons/fa'
+import Swal from 'sweetalert2'
 
 const Navber = () => {
   const { user, logoutUser } = useContext(AuthContext)
   const handleLogout = () => {
     logoutUser()
+    .then(()=>{
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your are succesfully logged Out.",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    })
+    .catch(()=>{
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Somthing went wrong!!",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    })
   }
   const link = (
     <>

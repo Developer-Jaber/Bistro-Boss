@@ -11,6 +11,7 @@ import {
 } from 'react-simple-captcha'
 import { AuthContext } from '../Provider/AuthProvider'
 import { useForm } from 'react-hook-form'
+import Swal from 'sweetalert2'
 
 const LoginPage = () => {
   const { popupGoogle, loginUser } = useContext(AuthContext)

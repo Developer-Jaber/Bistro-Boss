@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import signupImg from '../assets/others/authentication2.png' 
 import { useContext } from "react"
 import { AuthContext } from "../Provider/AuthProvider"
+import Swal from "sweetalert2"
 
 
 const SignupPage = () => {
