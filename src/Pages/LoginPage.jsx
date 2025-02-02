@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import bgLogin from '../assets/others/authentication.png'
@@ -6,7 +6,6 @@ import LoginImg from '../assets/others/authentication.gif'
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
   validateCaptcha
 } from 'react-simple-captcha'
 import { AuthContext } from '../Provider/AuthProvider'
@@ -39,13 +38,14 @@ const LoginPage = () => {
     })
   }
   const [disabled, setDisabled] = useState(true)
-  const captchaRef = useRef(null)
+  
   useEffect(() => {
     loadCaptchaEnginge(5)
   }, [])
 
-  const handleValidateCaptcha = () => {
-    const user_captcha_value = captchaRef.current.value
+  const handleValidateCaptcha = (e) => {
+    e.preventDefault();
+    const user_captcha_value = e.target.value
     if (validateCaptcha(user_captcha_value)) {
       setDisabled(false)
     } else {
@@ -113,16 +113,10 @@ const LoginPage = () => {
             </label>
             <input
               type='text'
-              ref={captchaRef}
+              onBlur={handleValidateCaptcha}
               name='captcha'
               className='input-bordered w-full input'
             />
-            <button
-              onClick={handleValidateCaptcha}
-              className='border-2 btn btn-sm'
-            >
-              veryfy
-            </button>
           </div>
           <button
             type='submit'
