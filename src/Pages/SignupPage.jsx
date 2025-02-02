@@ -17,11 +17,23 @@ const SignupPage = () => {
 
  
     createUser(email,password)
-    .then((res)=>{
-      console.log(res);
+    .then(()=>{
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your are succesfully logged in.",
+        showConfirmButton: false,
+        timer: 1500
+      });
     })
-    .catch(err=>{
-      console.log(err);
+    .catch(()=>{
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Somthing went wrong!!",
+        showConfirmButton: false,
+        timer: 1500
+      });
     })
 
   }

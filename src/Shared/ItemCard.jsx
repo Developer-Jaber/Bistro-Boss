@@ -4,7 +4,7 @@ const ItemCard = ({ card }) => {
   const { name, recipe, image } = card;
 
   const handleAddToCart = (card) =>{
-    console.log(card);
+    // console.log(card);
   }
   return (
     <div className='bg-slate-50 shadow-md rounded-xl card'>

@@ -12,8 +12,8 @@ import auth from '../Firebase/Firebase.config'
 export const AuthContext = createContext(null)
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState();
-  const [loder,setLoder] = useState(true);
+  const [user, setUser] = useState()
+  const [loder, setLoder] = useState(true)
 
   // Create User Using Email And Password
   const createUser = (email, password) => {
@@ -30,22 +30,21 @@ const AuthProvider = ({ children }) => {
   }
 
   // focus on user with caredential
-  useEffect(()=>{
+  useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, currentUser => {
-        setUser(currentUser);
-        console.log('state_captured',currentUser);
-        setLoder(false)
+      setUser(currentUser);
+      setLoder(false);
     })
 
-    return ()=>{
-        unSubscribe();
+    return () => {
+      unSubscribe()
     }
-  },[])
+  }, [])
 
   // logOut user
   const logoutUser = () => {
-        return signOut(auth);
-  }   
+    return signOut(auth)
+  }
 
   const authInfo = {
     createUser,
@@ -54,7 +53,7 @@ const AuthProvider = ({ children }) => {
     setUser,
     loder,
     loginUser,
-    logoutUser,
+    logoutUser
   }
 
   return (
