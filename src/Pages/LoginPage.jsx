@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import bgLogin from '../assets/others/authentication.png'
 import LoginImg from '../assets/others/authentication.gif'
 import {
@@ -16,6 +16,13 @@ const LoginPage = () => {
   const { popupGoogle, loginUser } = useContext(AuthContext)
 
   const { register, handleSubmit } = useForm()
+  const [disabled, setDisabled] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
+
   const onSubmit = data => {
     loginUser(data.email, data.password)
     .then(()=>{
@@ -26,6 +33,7 @@ const LoginPage = () => {
         showConfirmButton: false,
         timer: 1500
       });
+      navigate(from, { replace: true});
     })
     .catch(()=>{
       Swal.fire({
@@ -37,7 +45,7 @@ const LoginPage = () => {
       });
     })
   }
-  const [disabled, setDisabled] = useState(true)
+  
   
   useEffect(() => {
     loadCaptchaEnginge(5)

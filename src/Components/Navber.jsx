@@ -45,7 +45,7 @@ const Navber = () => {
         <Link to='order'>Our Shop</Link>
       </li>
       <li>
-        <Link to='/'>
+        <Link to='/cart-page'>
           <button className='flex gap-3'>
             <FaShoppingCart className='text-3xl'></FaShoppingCart>
             <div className='p-2 text-2xl badge badge-primary'>+0</div>

@@ -5,6 +5,7 @@ import OurMenu from "../Pages/OurMenu";
 import Order from "../Pages/Order";
 import LoginPage from "../Pages/LoginPage";
 import SignupPage from "../Pages/SignupPage";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignupPage></SignupPage>
+            },
+            {
+                path: '/cart-page',
+                element: <PrivetRoute><h1>this is cart page</h1></PrivetRoute>
             }
         ]
     }
