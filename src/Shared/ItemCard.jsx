@@ -1,10 +1,32 @@
 import React from 'react'
+import useAuth from '../Hooks/useAuth';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const ItemCard = ({ card }) => {
   const { name, recipe, image } = card;
+  const {user} = useAuth();
+  const navigate = useNavigate();
 
   const handleAddToCart = (card) =>{
-    // console.log(card);
+    if(user && user.email){
+      console.log(card,user.email);
+     //send cart to database 
+    }else{
+      Swal.fire({
+        title: "You are not logedin!",
+        text: "Please login !",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Login!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate('/login');
+        }
+      });
+    }
   }
   return (
     <div className='bg-slate-50 shadow-md rounded-xl card'>
