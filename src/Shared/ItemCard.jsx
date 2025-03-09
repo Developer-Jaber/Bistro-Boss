@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import useAxios from './useAxios';
+import useCart from '../Hooks/useCart';
 
 
 const ItemCard = ({ card }) => {
@@ -12,6 +13,7 @@ const ItemCard = ({ card }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const axiosSecure = useAxios();
+  const [, refetch] = useCart();
 
   const handleAddToCart = (card) =>{
     if(user && user.email){
@@ -34,6 +36,7 @@ const ItemCard = ({ card }) => {
           timer: 1500
         });
       }
+      refetch();
      })
      .catch(()=>{
       Swal.fire({

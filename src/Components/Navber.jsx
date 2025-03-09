@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../Provider/AuthProvider'
 import { FaShoppingCart } from 'react-icons/fa'
 import Swal from 'sweetalert2'
+import useCart from '../Hooks/useCart'
 
 const Navber = () => {
   const { user, logoutUser } = useContext(AuthContext)
+  const [cart] = useCart();
   const handleLogout = () => {
     logoutUser()
     .then(()=>{
@@ -48,7 +50,7 @@ const Navber = () => {
         <Link to='/cart-page'>
           <button className='flex gap-3'>
             <FaShoppingCart className='text-3xl'></FaShoppingCart>
-            <div className='p-2 text-2xl badge badge-primary'>+0</div>
+            <div className='p-3 text-xl badge badge-primary'>+{cart.length}</div>
           </button>
         </Link>
       </li>
